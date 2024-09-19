@@ -1,0 +1,56 @@
+/*TODO: Continue with header */
+.header
+{
+    height: 85vh;
+    background-image: 
+    linear-gradient(to right bottom,
+    rgba($color-primary-light,0.8),rgba($color-primary-dark,0.8)),
+    url(../images/nature-3082832_640.jpg);
+    background-size: cover; 
+    background-position: top;
+    /* clip-path: polygon(50% 0,50% 0,100% 100%,0 100%); */
+    
+    // @supports (-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem)) 
+    // {
+    //     backdrop-filter: blur(1rem);
+    //     -webkit-backdrop-filter: blur(1rem);
+    //     background-color: rgba($color-black,.3);
+    // }
+    
+    @supports  (-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0)) 
+    {
+        height: 95vh;
+        clip-path: polygon(0 0,100% 0,100% 75%,0 100%);
+        -webkit-clip-path: polygon(0 0,100% 0,100% 75%,0 100%);
+    }
+    
+    /* TODO: reference for logo box */
+    position: relative;
+    //TODO: Start nesting
+    @include respond(phone)
+    {
+        clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+    }
+    &__logo
+    {
+        height: 3.5rem;
+        mix-blend-mode: color-dodge;
+        &-box
+        {
+            position:absolute;
+            top: 4rem;
+            left: 4rem;
+        }
+    }
+
+    &__text-box
+    {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /* background-color: #777; */
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+}
+
